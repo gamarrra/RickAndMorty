@@ -1,0 +1,10 @@
+.contenedorPersonajes{
+    padding-left: 0.5px;
+    
+
+}
+
+.name{
+    cursor: pointer;
+    color: chartreuse;
+}

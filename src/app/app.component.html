@@ -1,0 +1,32 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container mt-3">
+  <div></div>
+    <a class="navbar-brand" href="#">Rick & Morty</a>
+    <div class="collapse navbar-collapse" id="collapseExample">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active"*ngIf="(auth.isAuthenticated$ | async)">
+          <a class="nav-link" routerLink="episodios">Episodios</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active"*ngIf="(auth.isAuthenticated$ | async)">
+          <a class="nav-link" routerLink="personajes">Personajes</a>
+        </li>
+      </ul>
+    </div>
+    <button class="btn btn-light"
+    (click)="loginWithRedirect()"
+    *ngIf="!(auth.isAuthenticated$ | async)">Ingresar</button>
+    <button 
+    (click)="logout()"
+    class="btn btn-danger" *ngIf="(auth.isAuthenticated$ | async)">Salir</button>
+  </div>
+  </nav>
+
+
+<div class="container mt-5">
+
+<img src="../../../assets/portada.jpg" *ngIf="!(auth.isAuthenticated$ | async)" alt="portada">
+
+  <router-outlet></router-outlet>
+</div>
+

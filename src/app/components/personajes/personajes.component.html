@@ -1,0 +1,70 @@
+  <div class="container">
+    <div class="contenedorPersonajes">
+      <div>
+  <div class="name-search row">
+    <div class="col-md-12" style="padding:10px;">
+      <input
+        name="name-search"
+        id="name-search"
+        placeholder="Buscar por nombre"
+        type="text"
+        class="form-control"
+        autocomplete="off"
+        (keyup)="getPersonajes()"
+        [(ngModel)]="searchTerm"
+      />
+    </div>
+ 
+    <div class="col-md-12"style="padding:10px;">
+      <input
+        class="form-control"
+        type="text"
+        name="search"
+        [(ngModel)]="searchText"
+        placeholder="Buscar por Id"
+      />
+    </div>
+  </div>
+   <br />
+      <div class="table-responsive">
+        <table class="table table-striped table-dark" *ngIf="personajeCall">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Species</th>
+              <th>Status</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="personajeCall.results">
+            <tr
+              *ngFor="let c of personajeCall.results | filter: searchText"
+              [routerLink]="['/character', c.id]"
+              [queryParams]="{ fromPage: currentPage, nameSearch: searchTerm }"
+            >
+              <td>{{ c.id }}</td>
+              <td class="name">{{ c.name }}</td>
+              <td>{{ c.species }}</td>
+              <td>{{ c.status }}</td>
+              <td>{{ c.gender }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav aria-label="pagination" style="margin-bottom: 10px">
+        <ul class="pagination justify-content-center" *ngIf="paginas">
+          <li
+            class="page-item"
+            *ngFor="let p of paginas"
+            [ngClass]="{ active: p === actPagina }"
+          >
+            <button class="btn btn-secondary btn-sm" (click)="getPersonajes(p)">
+              {{ p }}
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

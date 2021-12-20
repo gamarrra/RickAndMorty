@@ -2,7 +2,7 @@
 
 # Rick And Morty Episode and Characters guide
 ## Uso de:
-Autentificación externa con Authcero, paginación, api response listeners, routes, Authguard, Order-pipe, Api services, etc...
+Autentificación externa con Authcero, paginación, api response listeners, routes, Authguard, Order-pipe, Api services, Two-way data binding, Dependencies Injection, etc...
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
